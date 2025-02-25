@@ -2,9 +2,7 @@ import requests
 import json
 
 def get_github_repos(user_id):
-    """
-    Retrieves all repositories for a given GitHub user and fetches the number of commits for each repository.
-    """
+    
     base_url = f"https://api.github.com/users/{user_id}/repos"
     try:
         response = requests.get(base_url)
