@@ -14,6 +14,8 @@ def get_github_repos(user_id):
             return f"Error: Unable to fetch repositories. Status Code {response.status_code}"
 
         repos = response.json()
+        if not repos:
+            return f"User '{user_id}' has no public repositories."
         repo_commit_counts = []
 
         for repo in repos:
