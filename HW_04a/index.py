@@ -6,6 +6,10 @@ def get_github_repos(user_id):
     base_url = f"https://api.github.com/users/{user_id}/repos"
     try:
         response = requests.get(base_url)
+
+        if response.status_code == 404:
+            return f"Error: Profile not found or username '{user_id}' does not exist."
+        
         if response.status_code != 200:
             return f"Error: Unable to fetch repositories. Status Code {response.status_code}"
 
